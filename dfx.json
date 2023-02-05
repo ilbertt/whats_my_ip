@@ -1,0 +1,29 @@
+{
+  "canisters": {
+    "whats_my_ip_backend": {
+      "candid": "src/whats_my_ip_backend/whats_my_ip_backend.did",
+      "package": "whats_my_ip_backend",
+      "type": "rust"
+    },
+    "whats_my_ip_frontend": {
+      "dependencies": [
+        "whats_my_ip_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/whats_my_ip_frontend/src/index.html"
+      },
+      "source": [
+        "src/whats_my_ip_frontend/assets",
+        "dist/whats_my_ip_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "version": 1
+}

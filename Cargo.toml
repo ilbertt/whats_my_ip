@@ -1,0 +1,4 @@
+[workspace]
+members = [
+    "src/whats_my_ip_backend",
+]
