@@ -5,16 +5,15 @@
       "package": "api",
       "type": "rust"
     },
-    "whats_my_ip_frontend": {
+    "www": {
       "dependencies": [
         "api"
       ],
       "frontend": {
-        "entrypoint": "src/whats_my_ip_frontend/src/index.html"
+        "entrypoint": "src/www/src/index.html"
       },
       "source": [
-        "src/whats_my_ip_frontend/assets",
-        "dist/whats_my_ip_frontend/"
+        "src/www/dist"
       ],
       "type": "assets"
     }
