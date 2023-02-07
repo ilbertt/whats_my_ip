@@ -1,0 +1,26 @@
+// original version at https://internetcomputer.org/docs/current/references/ic-interface-spec#http-gateway-interface
+
+type HttpHeader = record { text; text };
+type HttpRequest = record {
+  url : text;
+  method : HttpMethod;
+  // max_response_bytes : opt nat64;
+  body : opt vec nat8;
+  // transform : opt TransformContext;
+  headers : vec HttpHeader;
+};
+type HttpMethod = text;
+type HttpResponse = record {
+  status_code : nat16;
+  headers : vec HttpHeader;
+  body : vec nat8;
+  streaming_strategy: opt bool;
+};
+type TransformArgs = record { context : vec nat8; response : HttpResponse };
+type TransformContext = record {
+  function : func (TransformArgs) -> (HttpResponse) query;
+  context : vec nat8;
+};
+service : {
+  http_request : (HttpRequest) -> (HttpResponse) query;
+}
