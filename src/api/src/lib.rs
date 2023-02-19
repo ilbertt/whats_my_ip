@@ -1,7 +1,12 @@
 use candid::candid_method;
-use http::{HttpRequest, HttpResponse, CONTENT_TYPE_HEADER_KEY};
-use ic_cdk::{print, query};
-use serde_json::{to_vec, Map, Value};
+use http::{
+    HttpRequest,
+    HttpResponse,
+    CONTENT_TYPE_HEADER_KEY,
+    ACCESS_CONTROL_ALLOW_ORIGIN_HEADER_KEY,
+};
+use ic_cdk::{ print, query };
+use serde_json::{ to_vec, Map, Value };
 
 pub mod http;
 
@@ -12,10 +17,10 @@ fn http_request(req: HttpRequest) -> HttpResponse {
     if req.method != "GET" {
         return HttpResponse {
             status_code: 405,
-            headers: vec![(
-                String::from(CONTENT_TYPE_HEADER_KEY),
-                String::from("plain/text"),
-            )],
+            headers: vec![
+                (String::from(CONTENT_TYPE_HEADER_KEY), String::from("plain/text")),
+                (String::from(ACCESS_CONTROL_ALLOW_ORIGIN_HEADER_KEY), String::from("*"))
+            ],
             body: "Method Not Allowed".into(),
             streaming_strategy: None,
         };
@@ -46,10 +51,10 @@ fn http_request(req: HttpRequest) -> HttpResponse {
 
     HttpResponse {
         status_code,
-        headers: vec![(
-            String::from(CONTENT_TYPE_HEADER_KEY),
-            String::from(content_type),
-        )],
+        headers: vec![
+            (String::from(CONTENT_TYPE_HEADER_KEY), String::from(content_type)),
+            (String::from(ACCESS_CONTROL_ALLOW_ORIGIN_HEADER_KEY), String::from("*"))
+        ],
         body,
         streaming_strategy: None,
     }
@@ -58,10 +63,7 @@ fn http_request(req: HttpRequest) -> HttpResponse {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use candid::{
-        export_service,
-        utils::{service_compatible, CandidSource},
-    };
+    use candid::{ export_service, utils::{ service_compatible, CandidSource } };
     use std::env;
 
     #[test]
@@ -77,8 +79,7 @@ mod tests {
 
         service_compatible(
             CandidSource::Text(&new_interface),
-            CandidSource::File(&did_path),
-        )
-        .unwrap();
+            CandidSource::File(&did_path)
+        ).unwrap();
     }
 }
