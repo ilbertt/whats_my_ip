@@ -3,7 +3,7 @@ use serde::Deserialize;
 
 pub const CONTENT_TYPE_HEADER_KEY: &str = "content-type";
 
-pub const CORS: &str = "Access-Control-Allow-Origin";
+pub const ACCESS_CONTROL_ALLOW_ORIGIN_HEADER_KEY: &str = "Access-Control-Allow-Origin";
 
 pub type HttpHeader = (String, String);
 

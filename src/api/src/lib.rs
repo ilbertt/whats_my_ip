@@ -1,5 +1,10 @@
 use candid::candid_method;
-use http::{ HttpRequest, HttpResponse, CONTENT_TYPE_HEADER_KEY, CORS };
+use http::{
+    HttpRequest,
+    HttpResponse,
+    CONTENT_TYPE_HEADER_KEY,
+    ACCESS_CONTROL_ALLOW_ORIGIN_HEADER_KEY,
+};
 use ic_cdk::{ print, query };
 use serde_json::{ to_vec, Map, Value };
 
@@ -14,7 +19,7 @@ fn http_request(req: HttpRequest) -> HttpResponse {
             status_code: 405,
             headers: vec![
                 (String::from(CONTENT_TYPE_HEADER_KEY), String::from("plain/text")),
-                (String::from(CORS), String::from("*"))
+                (String::from(ACCESS_CONTROL_ALLOW_ORIGIN_HEADER_KEY), String::from("*"))
             ],
             body: "Method Not Allowed".into(),
             streaming_strategy: None,
@@ -48,7 +53,7 @@ fn http_request(req: HttpRequest) -> HttpResponse {
         status_code,
         headers: vec![
             (String::from(CONTENT_TYPE_HEADER_KEY), String::from(content_type)),
-            (String::from(CORS), String::from("*"))
+            (String::from(ACCESS_CONTROL_ALLOW_ORIGIN_HEADER_KEY), String::from("*"))
         ],
         body,
         streaming_strategy: None,
