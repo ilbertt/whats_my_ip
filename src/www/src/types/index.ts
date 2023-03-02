@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react";
+
 export type APIResponse = {
   [key: string]: string;
 };
@@ -23,11 +25,16 @@ export type LordIconProps = {
   size?: number;
 };
 
+export type DevIconProps = {
+  handleDevTools: MouseEventHandler<HTMLDivElement>;
+};
+
 export type DevToolsProps = {
   showDevTools: boolean;
   result: Result;
   devToolsRef: React.RefObject<HTMLDivElement>;
 };
+
 export type GenericProps = {
   result: Result;
 };
