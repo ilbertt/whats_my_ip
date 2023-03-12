@@ -1,12 +1,12 @@
 export const GithubBadge = () => {
   return (
     <a
-      className="absolute top-[0%] left-[1%] cursor-pointer"
+      className="absolute top-[0%] left-[3%] md:top-[unset] md:bottom-[2.5%] md:left-[25%] cursor-pointer flex flex-col justify-center items-center"
       href="https://github.com/Luca8991/whats_my_ip"
       aria-label="Star Luca8991/whats_my_ip on GitHub"
     >
       <svg
-        className="scale-[.4]"
+        className="scale-[.3] md:scale-[.4]"
         width="98"
         height="96"
         xmlns="http://www.w3.org/2000/svg"
@@ -18,6 +18,9 @@ export const GithubBadge = () => {
           fill="#fff"
         />
       </svg>
+      <p className="font-normal no-underline text-white text-xs md:text-sm mt-[-24px] hover:text-gray-300">
+        Get Under the Hood!
+      </p>
     </a>
     // </div>
   );

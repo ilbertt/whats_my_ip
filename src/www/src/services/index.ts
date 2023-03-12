@@ -27,14 +27,11 @@ export const fetchIP = async () => {
     }
 
     const endTime = performance.now();
-
     const resContent = (await response.json()) as APIResponse;
-
     const duration = endTime - startTime;
-
     console.log("API canister response:", resContent);
 
-    if (resContent["x-forwarded-for"]) {
+    if (resContent) {
       return { resContent, duration };
     } else return;
   } catch (e) {

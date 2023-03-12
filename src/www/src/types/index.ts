@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { ClipboardEvent, MouseEventHandler } from "react";
 
 export type APIResponse = {
   [key: string]: string;
@@ -35,8 +35,26 @@ export type DevToolsProps = {
   devToolsRef: React.RefObject<HTMLDivElement>;
 };
 
-export type GenericProps = {
+export type UIProps = {
   result: Result;
+  ipRef: React.RefObject<HTMLHeadingElement>;
+  handleCopyToClipboard: MouseEventHandler<HTMLDivElement>;
+  loading: boolean;
+  elapsedTime: number;
+  copyCompleted: boolean;
+};
+
+export type IPContainer = {
+  result: Result;
+  ipRef: React.RefObject<HTMLHeadingElement>;
+  handleCopyToClipboard: MouseEventHandler<HTMLDivElement>;
+  loading: boolean;
+  copyCompleted: boolean;
+};
+
+export type CtCProps = {
+  handleCopyToClipboard: MouseEventHandler<HTMLDivElement>;
+  copyCompleted: boolean;
 };
 
 export type LordIconElement = React.DetailedHTMLProps<

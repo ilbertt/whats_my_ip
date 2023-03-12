@@ -19,17 +19,34 @@ const largeProps: ConfettiProps = {
 };
 
 export default function App() {
-  const { result, showDevTools, devToolsRef, handleDevTools } = useHandler();
+  const {
+    result,
+    showDevTools,
+    devToolsRef,
+    handleDevTools,
+    handleCopyToClipboard,
+    ipRef,
+    loading,
+    elapsedTime,
+    copyCompleted,
+  } = useHandler();
 
   return (
     <>
       <div className="w-full h-full ">
         <div className="flex items-center flex-col justify-center w-full h-full ">
-          <Ui result={result} />
+          <Ui
+            result={result}
+            ipRef={ipRef}
+            handleCopyToClipboard={handleCopyToClipboard}
+            loading={loading}
+            elapsedTime={elapsedTime}
+            copyCompleted={copyCompleted}
+          />
           <DfinityBadge />
           <DevIcon handleDevTools={handleDevTools} />
           <GithubBadge />
-          {result.ip && (
+          {result.ip && result.ip !== "No IP Found" && (
             <ConfettiExplosion
               colors={["#fff", "#00b7ff"]}
               style={{ position: "absolute", zIndex: "20" }}
