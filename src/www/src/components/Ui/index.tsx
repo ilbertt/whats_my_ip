@@ -37,14 +37,17 @@ export default function Ui({
         loading={loading}
         copyCompleted={copyCompleted}
       />
-      {result.ip && (
-        <div className="flex flex-col items-center justify-center absolute left-1/2 -translate-x-2/4 translate-y-[15%] bottom-[25%] sm:bottom-[15%]">
-          <h3 className="text-1xl sm:text-2xl font-[300]">Obtained in just</h3>
-          <h4 className="text-2xl sm:text-3xl font-bold bg-[linear-gradient(rgb(0,133,255)_25%,rgb(0,215,255)_100%)] bg-clip-text opacity-100 text-fill-color">
-            {elapsedTime}ms
-          </h4>
-        </div>
-      )}
+      {(loading || (!loading && result.ip)) && <div className="flex flex-col items-center justify-center absolute left-1/2 -translate-x-2/4 bottom-[30%] sm:bottom-[25%]">
+        <h3 className="text-1xl sm:text-2xl font-[300]">{loading ? 'Obtaining...' : 'Obtained in just'}</h3>
+        <h4 className={`text-2xl sm:text-3xl font-bold
+          ${loading
+            ? 'bg-[linear-gradient(180deg,rgb(168,168,168),rgb(50,50,50)_100%)]'
+            : 'bg-[linear-gradient(rgb(0,133,255)_25%,rgb(0,215,255)_100%)]'
+          } bg-clip-text opacity-100 text-fill-color`
+        }>
+          {elapsedTime}ms
+        </h4>
+      </div>}
     </div>
   );
 }
