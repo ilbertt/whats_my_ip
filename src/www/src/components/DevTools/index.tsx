@@ -19,7 +19,7 @@ export default function DevTools({
                 <p className="font-extrabold text-base text-[rgb(178,73,248)] whitespace-nowrap">
                   {key}:
                 </p>
-                <p className="pl-2">"{value}"</p>
+                <p className="pl-2">{value}</p>
               </div>
             ))}
           </div>
