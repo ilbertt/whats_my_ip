@@ -41,7 +41,7 @@ export default function Ui({
         <div className="flex flex-col items-center justify-center absolute left-1/2 -translate-x-2/4 translate-y-[15%] bottom-[25%] sm:bottom-[15%]">
           <h3 className="text-1xl sm:text-2xl font-[300]">Obtained in just</h3>
           <h4 className="text-2xl sm:text-3xl font-bold bg-[linear-gradient(rgb(0,133,255)_25%,rgb(0,215,255)_100%)] bg-clip-text opacity-100 text-fill-color">
-            {elapsedTime / 1000}s
+            {elapsedTime}ms
           </h4>
         </div>
       )}
