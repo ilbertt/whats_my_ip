@@ -1,7 +1,7 @@
 export const GithubBadge = () => {
   return (
     <a
-      className="absolute top-[0%] left-[3%] md:top-[unset] md:bottom-[2.5%] md:left-[25%] cursor-pointer flex flex-col justify-center items-center"
+      className="absolute bottom-[10%] left-[3%] md:bottom-[2.5%] md:left-[25%] cursor-pointer flex flex-col justify-center items-center"
       href="https://github.com/Luca8991/whats_my_ip"
       aria-label="Star Luca8991/whats_my_ip on GitHub"
     >
@@ -22,6 +22,5 @@ export const GithubBadge = () => {
         Get Under the Hood!
       </p>
     </a>
-    // </div>
   );
 };

@@ -22,7 +22,7 @@ export default function IpContainer({
       />
       <div
         className={`${result.ip ? "bg-transparent" : ""
-          } w-[70%] absolute left-1/2 -translate-x-2/4 translate-y-[0%] rounded-lg  sm:w-3/5 h-[12%] md:h-[20%] z-10 overflow-hidden flex justify-center items-center font-bold my-2xl bg-[#1c1c1c85] backdrop-blur-[20px] backdrop-saturate-[180%] tracking-wide`}
+          } w-[90%] absolute left-1/2 -translate-x-2/4 translate-y-[0%] rounded-lg  sm:w-3/5 h-[12%] md:h-[20%] z-10 overflow-hidden flex justify-center items-center font-bold my-2xl bg-[#1c1c1c85] backdrop-blur-[20px] backdrop-saturate-[180%] tracking-wide`}
       >
         <h1
           ref={ipRef}
