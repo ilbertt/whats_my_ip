@@ -24,5 +24,7 @@
       "packtool": ""
     }
   },
-  "version": 1
+  "version": 1,
+  "output_env_file": ".env",
+  "dfx": "0.14.1"
 }
