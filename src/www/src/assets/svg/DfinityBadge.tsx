@@ -1,7 +1,7 @@
 export const DfinityBadge = () => {
   return (
     <a
-      className="absolute w-[35%] sm:w-[20%] bottom-[3%] left-[3%] cursor-pointer no-underline"
+      className="absolute w-[35%] sm:w-[20%] max-w-xs bottom-[3%] left-[3%] cursor-pointer no-underline"
       href="https://internetcomputer.org/"
     >
       <svg
